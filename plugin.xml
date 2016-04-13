@@ -4,4 +4,16 @@
     <js-module name="CallPhonePlugin" src="www/CallPhonePlugin.js">
         <clobbers target="cordova.plugins.CallPhonePlugin" />
     </js-module>
+
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CallPhonePlugin">
+                <param name="android-package" value="com.plugin.CallPhonePlugin"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.CALL_PHONE" />
+        </config-file>
+        <source-file src="src/com/plugin/CallPhonePlugin.java" target-dir="src/com/plugin"/>
+    </platform>
 </plugin>
